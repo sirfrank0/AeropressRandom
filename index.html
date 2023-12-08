@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .container svg {
+            /* Agrega tus estilos para los SVG aquí */
+        }
+    </style>
+</head>
+<body>
+    <div id="recipe"></div>
+    <button onclick="generateRecipe()">Generar receta</button>
+
+    <script>
+        const grindSize = ["Fino", "Medio-fino", "Medio", "Medio-grueso", "Grueso"];
+        const waterTemp = Array.from({length: 97}, (_, i) => i);
+        const brewRatio = Array.from({length: 11}, (_, i) => `1:${i+10}`);
+        const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} segundos`);
+        const agitation = ["No agitar", "Agitar suavemente", "Agitar moderadamente", "Agitar vigorosamente"];
+        const agitationTime = ["Ninguna"].concat(Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`));
+
+        function generateRecipe() {
+            const recipe = {
+                grindSize: grindSize[Math.floor(Math.random() * grindSize.length)],
+                waterTemp: waterTemp[Math.floor(Math.random() * waterTemp.length)],
+                brewRatio: brewRatio[Math.floor(Math.random() * brewRatio.length)],
+                brewTime: brewTime[Math.floor(Math.random() * brewTime.length)],
+                agitation: agitation[Math.floor(Math.random() * agitation.length)],
+                agitationTime: agitationTime[Math.floor(Math.random() * agitationTime.length)]
+            };
+
+            if (recipe.agitation === "No agitar") {
+                recipe.agitationTime = "Ninguna";
+            }
+
+            document.getElementById('recipe').innerHTML = `
+                <div class="container">
+                    <svg><!-- Tu SVG aquí --></svg>
+                    <span>Tamaño de molienda: ${recipe.grindSize}</span>
+                </div>
+                <div class="container">
+                    <svg><!-- Tu SVG aquí --></svg>
+                    <span>Temperatura del agua: ${recipe.waterTemp}°C</span>
+                </div>
+                <div class="container">
+                    <svg><!-- Tu SVG aquí --></svg>
+                    <span>Proporción de preparación: ${recipe.brewRatio}</span>
+                </div>
+                <div class="container">
+                    <svg><!-- Tu SVG aquí --></svg>
+                    <span>Tiempo de infusión: ${recipe.brewTime}</span>
+                </div>
+                <div class="container">
+                    <svg><!-- Tu SVG aquí --></svg>
+                    <span>Agitación: ${recipe.agitation}</span>
+                </div>
+                <div class="container">
+                    <svg><!-- Tu SVG aquí --></svg>
+                    <span>Tiempo de agitación: ${recipe.agitationTime}</span>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
