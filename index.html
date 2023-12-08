@@ -10,14 +10,6 @@
             }
 
 
-        :root {
-            --sixty: #004AAD;
-            --thirty: #fdfdff;
-            --tenn: #F1A633;
-            font-size: 18px;
-            
-            
-        }
 
         body{
             display: grid;
@@ -25,9 +17,11 @@
             gap: 24px;
             margin: auto;
             max-width: 1200px;
+            height: 100vh;
         }
         .container {
-            width: 160px;
+            max-width: 150px;
+            min-width: 130px;
             margin: 24px auto 24px auto;
             border: 1px solid black;
             border-radius: 8px;
@@ -38,6 +32,7 @@
             justify-content: center;
             text-align: center;
             gap: 12px;
+            max-height: 146px;
             
         }
         .container svg {
@@ -88,12 +83,13 @@
     }
 
     .titleR{
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
+        line-height: 20px;
     }
 
     p{
-        font-size: 20px;
+        font-size: 16px;
     }
     </style>
 </head>
@@ -112,50 +108,52 @@
           <button onclick="reiniciarCronometro()">Reiniciar</button>
         </div>
       </div>
+
+      <footer>By Frank Riano</footer>
       
       
     <script>
 
-let tiempoTotal = 0;
-  let cronometro;
-  let isPaused = true;
+          let tiempoTotal = 0;
+          let cronometro;
+          let isPaused = true;
 
-  function formatTiempo(segundos) {
-    const horas = Math.floor(segundos / 3600);
-    const minutos = Math.floor((segundos % 3600) / 60);
-    const segundosRestantes = segundos % 60;
-    return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundosRestantes).padStart(2, '0')}`;
-  }
+          function formatTiempo(segundos) {
+            const horas = Math.floor(segundos / 3600);
+            const minutos = Math.floor((segundos % 3600) / 60);
+            const segundosRestantes = segundos % 60;
+            return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundosRestantes).padStart(2, '0')}`;
+          }
 
-  function actualizarCronometro() {
-    document.getElementById("cronometro").innerText = formatTiempo(tiempoTotal);
-  }
+          function actualizarCronometro() {
+            document.getElementById("cronometro").innerText = formatTiempo(tiempoTotal);
+          }
 
-  function iniciarCronometro() {
-    if (isPaused) {
-      cronometro = setInterval(() => {
-        tiempoTotal++;
-        actualizarCronometro();
-      }, 1000);
-      isPaused = false;
-    }
-  }
+          function iniciarCronometro() {
+            if (isPaused) {
+              cronometro = setInterval(() => {
+                tiempoTotal++;
+                actualizarCronometro();
+              }, 1000);
+              isPaused = false;
+            }
+          }
 
-  function pausarCronometro() {
-    clearInterval(cronometro);
-    isPaused = true;
-  }
+          function pausarCronometro() {
+            clearInterval(cronometro);
+            isPaused = true;
+          }
 
-  function reiniciarCronometro() {
-    tiempoTotal = 0;
-    actualizarCronometro();
-    pausarCronometro();
-  }
+          function reiniciarCronometro() {
+            tiempoTotal = 0;
+            actualizarCronometro();
+            pausarCronometro();
+          }
 
         const method = ["Tradicional", "Invertido"];
         const grindSize = ["Fino", "Medio-fino", "Medio", "Medio-grueso", "Grueso"];
         const waterTemp = Array.from({length: 97}, (_, i) => i);
-        const brewRatio = Array.from({length: 11}, (_, i) => `1:${i+10}`);
+        const brewRatio = Array.from({length: 11}, (_, i) => `1 gr : ${i+10} ml`);
         const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} segundos`);
         const agitation = ["No agitar", "Agitar suavemente", "Agitar moderadamente", "Agitar vigorosamente"];
         const agitationTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
@@ -186,26 +184,29 @@ let tiempoTotal = 0;
                     <span class="titleR">Método:<br>${recipe.method}</span>
                 </div>
                 <div class="container">
-                    <span class="titleR">Tamaño de molienda:</span>
+                    <span class="titleR">Tamaño de molienda</span>
                     <p>${recipe.grindSize}</p>
                     <img src="./pics/coffee-beans.png" alt="">
                 </div>
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
-                    <span>Temperatura del agua: ${recipe.waterTemp}°C</span>
+                    <span class="titleR">Temperatura del agua: </span>
+                    <p>${recipe.waterTemp}°C</p>
+                    <img src="./pics/icons8-heat-100.png" alt="">
                 </div>
                 <div class="container">
-                    <span class="titleR">Proporción de preparación:</span>
+                    <span class="titleR">Proporción Cafe : Agua</span>
                     <p>${recipe.brewRatio}</p>
                     <img src="./pics/icons8-coffee-64.png" alt="">
                 </div>
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
-                    <span>Tiempo de infusión: ${recipe.brewTime}</span>
+                    <span class="titleR">Tiempo de infusión</span>
+                    <p>${recipe.brewTime}</p>
+                    <img src="./pics/icons8-liquid-64.png" alt="">
                 </div>
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
-                    <span>Agitación: ${recipe.agitation}</span>
+                    <span class="titleR">Agitación</span>
+                    <p>${recipe.agitation}</p>
+                    <img src="./pics//icons8-mix-64.png" alt="">
                 </div>
                 <div class="container">
                     <svg><!-- Tu SVG aquí --></svg>
@@ -213,6 +214,8 @@ let tiempoTotal = 0;
                 </div>
             `;
         }
+        
     </script>
+    
 </body>
 </html>
