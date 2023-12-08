@@ -3,16 +3,21 @@
 <head>
     <style>
         .container {
-            display: flex;
-            justify-content: center;
+
             margin-bottom: 20px;
         }
         .container svg {
             /* Agrega tus estilos para los SVG aquí */
         }
+
+        img{
+            max-width: 50px;
+        }
     </style>
 </head>
 <body>
+    
+    <h1>Generador de Recetas Aeropress</h1>
     <div id="recipe"></div>
     <button onclick="generateRecipe()">Generar receta</button>
 
@@ -40,7 +45,7 @@
 
             document.getElementById('recipe').innerHTML = `
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
+                    <img src="./pics/coffee-cup-free-svg-file.png" alt="">
                     <span>Tamaño de molienda: ${recipe.grindSize}</span>
                 </div>
                 <div class="container">
