@@ -3,14 +3,32 @@
 <head>
     <style>
 
+        *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+
+        :root {
+            --sixty: #004AAD;
+            --thirty: #fdfdff;
+            --tenn: #F1A633;
+            font-size: 18px;
+            
+            
+        }
+
         body{
             display: grid;
             justify-items: center;
+            gap: 24px;
+            margin: auto;
+            max-width: 1200px;
         }
         .container {
-            width: 130px;
-            height: 130px;
-            margin: 0px auto 10px auto;
+            width: 160px;
+            margin: 24px auto 24px auto;
             border: 1px solid black;
             border-radius: 8px;
             padding: 8px;
@@ -19,6 +37,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            gap: 12px;
             
         }
         .container svg {
@@ -32,6 +51,7 @@
         #recipe{
             display: flex;
             gap: 24px;
+            width: 100%;
         }
 
         .boton-receta{
@@ -66,6 +86,15 @@
       font-size: 16px;
       cursor: pointer;
     }
+
+    .titleR{
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    p{
+        font-size: 20px;
+    }
     </style>
 </head>
 <body>
@@ -77,13 +106,14 @@
     <div id="cronometro-container">
         <h1>Cronómetro</h1>
         <div id="cronometro">00:00:00</div>
-        <div id="botones-cronometro">
+        <div id="botones-cronometro"> 
           <button onclick="iniciarCronometro()">Iniciar</button>
           <button onclick="pausarCronometro()">Pausar</button>
           <button onclick="reiniciarCronometro()">Reiniciar</button>
         </div>
       </div>
-
+      
+      
     <script>
 
 let tiempoTotal = 0;
@@ -128,7 +158,7 @@ let tiempoTotal = 0;
         const brewRatio = Array.from({length: 11}, (_, i) => `1:${i+10}`);
         const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} segundos`);
         const agitation = ["No agitar", "Agitar suavemente", "Agitar moderadamente", "Agitar vigorosamente"];
-        const agitationTime = ["Ninguna"].concat(Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`));
+        const agitationTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
 
         function generateRecipe() {
             const recipe = {
@@ -142,26 +172,32 @@ let tiempoTotal = 0;
             };
 
             if (recipe.agitation === "No agitar") {
-                recipe.agitationTime = "Ninguna";
+                recipe.agitationTime = "0 segundos";
+            }
+            else
+            {
+                recipe.agitationTime;
             }
 
             document.getElementById('recipe').innerHTML = `
 
                 <div class="container">
                     <svg><!-- Tu SVG aquí --></svg>
-                    <span>Método: ${recipe.method}</span>
+                    <span class="titleR">Método:<br>${recipe.method}</span>
                 </div>
                 <div class="container">
-                    <span>Tamaño de molienda: ${recipe.grindSize}</span>
-                    <img src="./pics/coffee-cup-free-svg-file.png" alt="">
+                    <span class="titleR">Tamaño de molienda:</span>
+                    <p>${recipe.grindSize}</p>
+                    <img src="./pics/coffee-beans.png" alt="">
                 </div>
                 <div class="container">
                     <svg><!-- Tu SVG aquí --></svg>
                     <span>Temperatura del agua: ${recipe.waterTemp}°C</span>
                 </div>
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
-                    <span>Proporción de preparación: ${recipe.brewRatio}</span>
+                    <span class="titleR">Proporción de preparación:</span>
+                    <p>${recipe.brewRatio}</p>
+                    <img src="./pics/icons8-coffee-64.png" alt="">
                 </div>
                 <div class="container">
                     <svg><!-- Tu SVG aquí --></svg>
