@@ -19,7 +19,7 @@
 
 
         body{
-          height: 100vh;
+          min-height: 100vh;
           margin: auto;
           background-color: #F5F5F5;
             
@@ -46,6 +46,7 @@
             max-width: 1200px;
             flex-direction: column;
             align-items: center;
+            flex: 1;
         }
         .container {
             max-width: 160px;
@@ -135,6 +136,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
       border: 2px solid #8D6E63;
+      margin-bottom: 72px;
     }
 
     #cronometro {
@@ -231,7 +233,7 @@
           flex-direction: column;
           animation: fadein 1.5s;
           max-width: 840px;
-          margin: -24px 16px 0px 16px;
+          margin: -24px 32px 0px 32px;
         }
 
         #inst-cont h2{
@@ -272,6 +274,10 @@
           width: 100%;
           text-align: center;
           margin-top: 24px;
+          position: fixed;
+            left: 0;
+            bottom: 0;
+          
         }
 
         .recipesave{
