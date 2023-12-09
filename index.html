@@ -2,11 +2,13 @@
 <html>
 <head>
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
 
         *{
                 box-sizing: border-box;
                 margin: 0;
                 padding: 0;
+                font-family: 'Cutive Mono', monospace;
             }
 
 
@@ -17,10 +19,17 @@
             justify-items: center;
             align-content: space-between;
             background-color: #F5F5F5;
+            
         }
 
         h1{
-          margin: 24px;
+          margin-top: 24px;
+          padding: 8px 32px 8px 32px;
+          border: 2px solid #8D6E63;
+          border-radius: 8px;
+          color: #63483e;
+          font-weight: bolder;
+
         }
 
         main{
@@ -29,14 +38,11 @@
             gap: 24px;
             margin: auto;
             max-width: 1200px;
-            
-            
+            margin: 24px auto 24px auto;
             align-content: space-between;
         }
         .container {
-            max-width: 150px;
-            min-width: 130px;
-            margin: 24px auto 24px auto;
+            width: 150px;
             border: 2px solid #8D6E63;
             border-radius: 8px;
             padding: 8px;
@@ -49,9 +55,6 @@
             max-height: 146px;
             
         }
-        .container svg {
-            /* Agrega tus estilos para los SVG aquí */
-        }
 
         img{
             max-width: 50px;
@@ -61,6 +64,14 @@
             display: flex;
             gap: 24px;
             width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .recipe-cont{
+          flex-direction: row !important;
+          display: flex;
+          gap: 8px;
         }
 
         .boton-receta,.inst-button{
@@ -112,6 +123,13 @@
     #botones-cronometro {
       display: flex;
       justify-content: center;
+      flex-direction: column;
+    }
+
+    .buttons-up{
+      display: flex;
+      margin-bottom: 8px;
+      gap: 8px;
     }
 
     #botones-cronometro button {
@@ -125,6 +143,8 @@
             display: flex;
             gap: 8px;
             align-items: center;
+            justify-content: center;
+            min-width: 120px;
       
     }
 
@@ -163,6 +183,7 @@
 
         #inst-cont{
           display: flex;
+          animation: fadein 1.5s;
         }
         .column {
 
@@ -190,6 +211,8 @@
           width: 100%;
           text-align: center;
         }
+
+
 
     </style>
 </head>
@@ -254,9 +277,11 @@
     <div id="cronometro-container">
         <h1>Cronómetro</h1>
         <div id="cronometro">00:00:00</div>
-        <div id="botones-cronometro"> 
-          <button onclick="iniciarCronometro()"><img src="./pics/play-button.png" alt="">Iniciar</button>
-          <button onclick="pausarCronometro()"><img src="./pics/pause.png" alt="">Pausar</button>
+        <div id="botones-cronometro">
+          <div class="buttons-up">
+            <button onclick="iniciarCronometro()"><img src="./pics/play-button.png" alt="">Iniciar</button>
+            <button onclick="pausarCronometro()"><img src="./pics/pause.png" alt="">Pausar</button>
+          </div> 
           <button onclick="reiniciarCronometro()"><img src="./pics/reset.png" alt="">Reiniciar</button>
         </div>
       </div>
@@ -342,46 +367,51 @@
 
             document.getElementById('recipe').innerHTML = `
 
-                <div class="container">
-                    <span class="titleR">Método</span>
-                    <p>${recipe.method}</p>
-                    <img src="./pics/aeropress.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Tamaño de molienda</span>
-                    <p>${recipe.grindSize}</p>
-                    <img class="imgbig" src="./pics/coffee-beans.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Temperatura del agua: </span>
-                    <p>${recipe.waterTemp}°C</p>
-                    <img src="./pics/icons8-heat-100.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Proporción Cafe : Agua</span>
-                    <p>${recipe.brewRatio}</p>
-                    <img src="./pics/icons8-coffee-64.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Tiempo de infusión</span>
-                    <p>${recipe.brewTime}</p>
-                    <img src="./pics/icons8-liquid-64.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Agitación</span>
-                    <p>${recipe.agitation}</p>
-                    <img src="./pics//icons8-mix-64.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Tiempo de agitación</span>
-                    <p>${recipe.agitationTime}</p>
-                    <img class="imgbig" src="./pics/hourglass.png" alt="">
-                </div>
-                <div class="container">
-                    <span class="titleR">Tiempo presionando</span>
-                    <p>${recipe.pressingTime}</p>
-                    <img src="./pics/aeropress2.png" alt="">
-                </div>
+            <div class="recipe-cont">
+        <div class="container">
+          <span class="titleR">Método</span>
+          <p>${recipe.method}</p>
+          <img src="./pics/aeropress.png" alt="">
+      </div>
+      <div class="container">
+          <span class="titleR">Tamaño de molienda</span>
+          <p>${recipe.grindSize}</p>
+          <img class="imgbig" src="./pics/coffee-beans.png" alt="">
+      </div>
+      <div class="container">
+          <span class="titleR">Temperatura del agua: </span>
+          <p>${recipe.waterTemp}°C</p>
+          <img src="./pics/icons8-heat-100.png" alt="">
+      </div>
+      <div class="container">
+          <span class="titleR">Cafe:Agua</span>
+          <p>${recipe.brewRatio}</p>
+          <img src="./pics/icons8-coffee-64.png" alt="">
+      </div>
+    </div>
+
+    <div class="recipe-cont">
+      <div class="container">
+        <span class="titleR">Tiempo de infusión</span>
+        <p>${recipe.brewTime}</p>
+        <img src="./pics/icons8-liquid-64.png" alt="">
+    </div>
+    <div class="container">
+        <span class="titleR">Agitación</span>
+        <p>${recipe.agitation}</p>
+        <img src="./pics//icons8-mix-64.png" alt="">
+    </div>
+    <div class="container">
+        <span class="titleR">Tiempo de agitación</span>
+        <p>${recipe.agitationTime}</p>
+        <img class="imgbig" src="./pics/hourglass.png" alt="">
+    </div>
+    <div class="container">
+        <span class="titleR">Tiempo presionando</span>
+        <p>${recipe.pressingTime}</p>
+        <img src="./pics/aeropress2.png" alt="">
+    </div>
+    </div>
             `;
         }
 
@@ -396,6 +426,6 @@
 
         
     </script>
-    
+
 </body>
 </html>
