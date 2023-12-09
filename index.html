@@ -80,12 +80,12 @@
             font-size: 16px;
             cursor: pointer;
             border-radius: 8px;
-            border: 2px solid ;
             background-color: #8D6E63;
             color: #F5F5F5;
             display: flex;
             gap: 8px;
             align-items: center;
+            border: none;
 
         }
 
@@ -109,10 +109,11 @@
 
         #cronometro-container {
       background-color: #fff;
-      padding: 20px;
+      padding: 16px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
+      border: 2px solid #8D6E63;
     }
 
     #cronometro {
@@ -144,7 +145,7 @@
             gap: 8px;
             align-items: center;
             justify-content: center;
-            min-width: 120px;
+            min-width: 60px;
       
     }
 
@@ -160,7 +161,6 @@
         font-size: 20px;
         font-weight: bold;
         line-height: 20px;
-        color: b
     }
 
     p{
@@ -172,7 +172,27 @@
     }
 
     #cronometro{
-      font-size: 48px;
+      font-size: 32px;
+      padding: 8px;
+      border-radius: 8px;
+      color: #63483e;
+      border: 2px solid #63483e;
+    }
+
+    #cronometro-container h2{
+      margin-bottom: 16px;
+      color: #63483e;
+      border-radius: 8px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-size: 32px;
+    }
+
+    .timerpic{
+      width: 32px;
     }
 
     h2{
@@ -184,6 +204,15 @@
         #inst-cont{
           display: flex;
           animation: fadein 1.5s;
+          max-width: 840px;
+        }
+
+        #inst-cont h2{
+          color: #63483e;
+        }
+
+        #inst-cont p{
+          font-size: 16px;
         }
         .column {
 
@@ -192,6 +221,12 @@
         
         .step{
           margin-bottom: 16px;
+        }
+
+        .crono-cont{
+          display: flex;
+          align-items: center;
+          gap: 16px;
         }
 
 
@@ -275,15 +310,17 @@
     <button onclick="generateRecipe()" class="boton-receta"><img src="./pics/recipe-book.png" alt="">Generar receta</button>
 
     <div id="cronometro-container">
-        <h1>Cronómetro</h1>
-        <div id="cronometro">00:00:00</div>
-        <div id="botones-cronometro">
-          <div class="buttons-up">
-            <button onclick="iniciarCronometro()"><img src="./pics/play-button.png" alt="">Iniciar</button>
-            <button onclick="pausarCronometro()"><img src="./pics/pause.png" alt="">Pausar</button>
-          </div> 
-          <button onclick="reiniciarCronometro()"><img src="./pics/reset.png" alt="">Reiniciar</button>
-        </div>
+        <h2><img src="./pics/timer.png" alt="" class="timerpic">Cronómetro</h2>
+        <div class="crono-cont">
+          <div id="cronometro">00:00:00</div>
+          <div id="botones-cronometro">
+            <div class="buttons-up">
+              <button onclick="iniciarCronometro()"><img src="./pics/play-button.png" alt=""></button>
+              <button onclick="pausarCronometro()"><img src="./pics/pause.png" alt=""></button>
+            </div> 
+            <button onclick="reiniciarCronometro()"><img src="./pics/reset.png" alt=""></button>
+          </div>
+      </div>
       </div>
 
     </main>  
