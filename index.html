@@ -221,7 +221,7 @@
         }
         .column {
 
-            padding: 10px;
+            padding: 16px;
         }
         
         .step{
@@ -275,7 +275,7 @@
           </div>
           <div class="step">
               <h2>Paso 2: Tamaño de molienda</h2>
-              <p>Elige entre "Fino", "Medio-fino", "Medio", "Medio-grueso" y "Grueso".</p>
+              <p>Elige el grosor del grano de café.</p>
           </div>
           <div class="step">
               <h2>Paso 3: Temperatura del agua</h2>
@@ -294,12 +294,12 @@
       <div class="column">
 
           <div class="step">
-              <h2>Paso 6: Agitación</h2>
-              <p>Agita la Aeropress según la opción seleccionada: "No agitar", "Agitar suavemente", "Agitar moderadamente" o "Agitar vigorosamente".</p>
+              <h2>Paso 6: Mezclar</h2>
+              <p>Mezcla el café dentro de la Aeropress según la intensidad dada por la receta.</p>
           </div>
           <div class="step">
-              <h2>Paso 7: Tiempo de agitación</h2>
-              <p>Si has elegido agitar, hazlo durante el tiempo seleccionado, que puede variar desde 30 segundos hasta 1:30 minutos.</p>
+              <h2>Paso 7: Tiempo mezclando</h2>
+              <p>Si has elegido mezclar, hazlo durante el tiempo seleccionado, que puede variar desde 30 segundos hasta 1:30 minutos.</p>
           </div>
           <div class="step">
               <h2>Paso 8: Tiempo presionando</h2>
@@ -382,7 +382,7 @@
         const waterTemp = Array.from({length: 97}, (_, i) => i);
         const brewRatio = Array.from({length: 11}, (_, i) => `1 gr : ${i+10} ml`);
         const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} segundos`);
-        const agitation = ["No agitar", "Agitar suavemente", "Agitar moderadamente", "Agitar vigorosamente"];
+        const agitation = ["No mezclar", "Mezclar suavemente", "Mezclar moderadamente", "Mezclar vigorosamente"];
         const agitationTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
         const pressingTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
 
@@ -445,12 +445,12 @@
         <img src="./pics/icons8-liquid-64.png" alt="">
     </div>
     <div class="container">
-        <span class="titleR">Agitación</span>
+        <span class="titleR">Mezclar</span>
         <p>${recipe.agitation}</p>
         <img src="./pics//icons8-mix-64.png" alt="">
     </div>
     <div class="container">
-        <span class="titleR">Tiempo de agitación</span>
+        <span class="titleR">Tiempo mezclando</span>
         <p>${recipe.agitationTime}</p>
         <img class="imgbig" src="./pics/hourglass.png" alt="">
     </div>
