@@ -71,11 +71,6 @@
         }
 
 
-        @media (min-width: 540px) {
-          .grid-container {
-            grid-template-columns: repeat(4, minmax(140px, 1fr));
-          }
-        }
 
 
 
@@ -231,8 +226,10 @@
 
         #inst-cont{
           display: flex;
+          flex-direction: column;
           animation: fadein 1.5s;
           max-width: 840px;
+          margin: 16px;
         }
 
         #inst-cont h2{
@@ -244,7 +241,7 @@
         }
         .column {
 
-            padding: 16px;
+            padding: 0px;
         }
         
         .step{
@@ -259,12 +256,6 @@
           display: flex;
           align-items: center;
           gap: 16px;
-        }
-
-
-        @keyframes fadein {
-            from { opacity: 0; }
-            to   { opacity: 1; }
         }
 
         #recipe {
@@ -282,6 +273,27 @@
 
 
 
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        @media (min-width: 540px) {
+          .grid-container {
+            grid-template-columns: repeat(4, minmax(140px, 1fr));
+          }
+
+          .column{
+            padding: 16px;
+          }
+
+          #inst-cont{
+          flex-direction: row;
+        }
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -292,24 +304,28 @@
       <h1>Generador de recetas Aeropress</h1>
     <div id="inst-cont">
       <div class="column">
+        <div class="step">
+          <h2>Paso 1: Obtener receta</h2>
+          <p>Presiona el botón de "Generar receta" para empezar.</p>
+      </div>
           <div class="step">
-              <h2>Paso 1: Método</h2>
-              <p>Elige entre el método Tradicional o Invertido.</p>
+              <h2>Paso 2: Método</h2>
+              <p>Prepara tu Aeropress en el método Tradicional o Invertido.</p>
           </div>
           <div class="step">
-              <h2>Paso 2: Tamaño de molienda</h2>
+              <h2>Paso 3: Tamaño de molienda</h2>
               <p>Elige el grosor del grano de café.</p>
           </div>
           <div class="step">
-              <h2>Paso 3: Temperatura del agua</h2>
+              <h2>Paso 4: Temperatura del agua</h2>
               <p>Calienta el agua a la temperatura seleccionada, que puede variar desde 0°C hasta 96°C.</p>
           </div>
           <div class="step">
-              <h2>Paso 4: Proporción Cafe : Agua</h2>
+              <h2>Paso 5: Proporción Cafe : Agua</h2>
               <p>Mide el café y el agua según la proporción seleccionada, que puede variar desde 1:10 hasta 1:20.</p>
           </div>
           <div class="step">
-            <h2>Paso 5: Tiempo de infusión</h2>
+            <h2>Paso 6: Tiempo de infusión</h2>
             <p>Vierte el café en el émbolo de la Aeropress y deja que infusione durante el tiempo seleccionado, que puede variar desde 30 segundos hasta 4 minutos.</p>
         </div>
       </div>
@@ -317,21 +333,25 @@
       <div class="column">
 
           <div class="step">
-              <h2>Paso 6: Mezclar</h2>
+              <h2>Paso 7: Mezclar</h2>
               <p>Mezcla el café dentro de la Aeropress según la intensidad dada por la receta.</p>
           </div>
           <div class="step">
-              <h2>Paso 7: Tiempo mezclando</h2>
+              <h2>Paso 8: Tiempo mezclando</h2>
               <p>Si has elegido mezclar, hazlo durante el tiempo seleccionado, que puede variar desde 30 segundos hasta 1:30 minutos.</p>
           </div>
           <div class="step">
-              <h2>Paso 8: Tiempo presionando</h2>
+              <h2>Paso 9: Tiempo presionando</h2>
               <p>Coloca un recipiente debajo de la Aeropress y presiona durante el tiempo seleccionado.</p>
           </div>
           <div class="step">
-            <h2>Paso 9: Disfrutar de tu café</h2>
+            <h2>Paso 10: Disfrutar de tu café</h2>
             <p>¡Ahora es el momento de disfrutar de tu café recién hecho!</p>
         </div>
+        <div class="step">
+          <h2>Paso 11: Guarda tu receta</h2>
+          <p>No olvides guardar tu receta, anotándola o tomando una foto.</p>
+      </div>
       </div>
 
   </div>
@@ -450,7 +470,7 @@
           <img class="imgbig" src="./pics/coffee-beans.png" alt="">
       </div>
       <div class="container">
-          <span class="titleR">Temperatura del agua: </span>
+          <span class="titleR">Temperatura del agua</span>
           <p>${recipe.waterTemp}°C</p>
           <img src="./pics/icons8-heat-100.png" alt="">
       </div>
