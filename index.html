@@ -47,7 +47,7 @@
             align-items: center;
         }
         .container {
-            width: 150px;
+            max-width: 150px;
             border: 2px solid #8D6E63;
             border-radius: 8px;
             padding: 8px;
@@ -60,6 +60,25 @@
             max-height: 146px;
             
         }
+
+
+        .grid-container {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(140px, 1fr));
+          gap: 20px;
+        }
+
+
+        @media (min-width: 540px) {
+          .grid-container {
+            grid-template-columns: repeat(4, minmax(140px, 1fr));
+          }
+        }
+
+
+
+
+
 
         img{
             max-width: 50px;
@@ -415,7 +434,7 @@
 
             document.getElementById('recipe').innerHTML = `
 
-            <div class="recipe-cont">
+            <div class="grid-container">
         <div class="container">
           <span class="titleR">Método</span>
           <p>${recipe.method}</p>
@@ -436,9 +455,9 @@
           <p>${recipe.brewRatio}</p>
           <img src="./pics/icons8-coffee-64.png" alt="">
       </div>
-    </div>
+    
 
-    <div class="recipe-cont">
+    
       <div class="container">
         <span class="titleR">Tiempo de infusión</span>
         <p>${recipe.brewTime}</p>
