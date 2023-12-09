@@ -48,17 +48,16 @@
             align-items: center;
         }
         .container {
-            max-width: 150px;
+            max-width: 160px;
             border: 2px solid #8D6E63;
             border-radius: 8px;
-            padding: 8px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             gap: 12px;
-            max-height: 146px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             
         }
@@ -184,10 +183,13 @@
         font-size: 20px;
         font-weight: bold;
         line-height: 20px;
+        color: #63483e;
     }
 
     p{
         font-size: 16px;
+        color: rgb(7, 7, 7);
+        font-weight: 600;
     }
     
     .imgbig{
@@ -210,8 +212,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 24px;
-      font-size: 32px;
+      gap: 8px;
+      font-size: 28px;
     }
 
     .timerpic{
@@ -229,7 +231,7 @@
           flex-direction: column;
           animation: fadein 1.5s;
           max-width: 840px;
-          margin: 16px;
+          margin: -24px 16px 0px 16px;
         }
 
         #inst-cont h2{
@@ -238,6 +240,7 @@
 
         #inst-cont p{
           font-size: 16px;
+          line-height: 20px;
         }
         .column {
 
@@ -245,7 +248,7 @@
         }
         
         .step{
-          margin-bottom: 16px;
+          margin-top: 24px;
         }
 
         .step h2{
@@ -271,6 +274,18 @@
           margin-top: 24px;
         }
 
+        .recipesave{
+          margin: auto;
+          padding: 16px 32px 0px 32px;
+          text-align: center;
+        }
+        .recipesave p{
+          margin-top: 8px;
+        }
+        .recipesave h2{
+          color: #63483e;
+        }
+
 
 
         @keyframes fadein {
@@ -278,13 +293,14 @@
             to   { opacity: 1; }
         }
 
-        @media (min-width: 540px) {
+        @media (min-width: 700px) {
           .grid-container {
             grid-template-columns: repeat(4, minmax(140px, 1fr));
           }
 
           .column{
             padding: 16px;
+            max-width: 400px;
           }
 
           #inst-cont{
@@ -321,8 +337,8 @@
               <p>Calienta el agua a la temperatura seleccionada, que puede variar desde 0°C hasta 96°C.</p>
           </div>
           <div class="step">
-              <h2>Paso 5: Proporción Cafe : Agua</h2>
-              <p>Mide el café y el agua según la proporción seleccionada, que puede variar desde 1:10 hasta 1:20.</p>
+              <h2>Paso 5: Proporción Café : Agua</h2>
+              <p>Mide el café y el agua según la proporción seleccionada, que puede variar desde 1:10 hasta 1:20. Por ejemplo, 1:10 significa 10ml de agua por cada 1gr de café.</p>
           </div>
           <div class="step">
             <h2>Paso 6: Tiempo de infusión</h2>
@@ -346,12 +362,8 @@
           </div>
           <div class="step">
             <h2>Paso 10: Disfrutar de tu café</h2>
-            <p>¡Ahora es el momento de disfrutar de tu café recién hecho!</p>
+            <p>¡Ahora es el momento de disfrutar de tu café recién hecho! 🤎</p>
         </div>
-        <div class="step">
-          <h2>Paso 11: Guarda tu receta</h2>
-          <p>No olvides guardar tu receta, anotándola o tomando una foto.</p>
-      </div>
       </div>
 
   </div>
@@ -503,6 +515,10 @@
         <img src="./pics/aeropress2.png" alt="">
     </div>
     </div>
+    <div class="recipesave">
+          <h2>Guarda tu receta</h2>
+          <p>No olvides guardar tu receta, anotándola o tomando una foto.</p>
+      </div>
             `;
         }
 
