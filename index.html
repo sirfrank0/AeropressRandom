@@ -18,12 +18,14 @@
             margin: auto;
             max-width: 1200px;
             height: 100vh;
+            background-color: #F5F5F5;
+            align-content: space-around;
         }
         .container {
             max-width: 150px;
             min-width: 130px;
             margin: 24px auto 24px auto;
-            border: 1px solid black;
+            border: 2px solid #8D6E63;
             border-radius: 8px;
             padding: 8px;
             display: flex;
@@ -50,10 +52,14 @@
         }
 
         .boton-receta{
-            margin: 0 10px;
-      padding: 8px 16px;
-      font-size: 16px;
-      cursor: pointer;
+            margin: 10px;
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: 2px solid ;
+            background-color: #8D6E63;
+            color: #F5F5F5;
 
         }
 
@@ -80,17 +86,28 @@
       padding: 8px 16px;
       font-size: 16px;
       cursor: pointer;
+      
     }
 
     .titleR{
         font-size: 20px;
         font-weight: bold;
         line-height: 20px;
+        color: b
     }
 
     p{
         font-size: 16px;
     }
+
+    @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        #recipe {
+            animation: fadein 1.5s;
+        }
     </style>
 </head>
 <body>
@@ -109,7 +126,7 @@
         </div>
       </div>
 
-      <footer>By Frank Riano</footer>
+      <footer>By Frank Riaño</footer>
       
       
     <script>
@@ -157,6 +174,7 @@
         const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} segundos`);
         const agitation = ["No agitar", "Agitar suavemente", "Agitar moderadamente", "Agitar vigorosamente"];
         const agitationTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
+        const pressingTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
 
         function generateRecipe() {
             const recipe = {
@@ -166,7 +184,8 @@
                 brewRatio: brewRatio[Math.floor(Math.random() * brewRatio.length)],
                 brewTime: brewTime[Math.floor(Math.random() * brewTime.length)],
                 agitation: agitation[Math.floor(Math.random() * agitation.length)],
-                agitationTime: agitationTime[Math.floor(Math.random() * agitationTime.length)]
+                agitationTime: agitationTime[Math.floor(Math.random() * agitationTime.length)],
+                pressingTime: pressingTime[Math.floor(Math.random() * pressingTime.length)]
             };
 
             if (recipe.agitation === "No agitar") {
@@ -177,11 +196,19 @@
                 recipe.agitationTime;
             }
 
+
+            const recipeElement = document.getElementById('recipe');
+            recipeElement.style.animation = 'none';
+            recipeElement.offsetHeight; /* trigger reflow */
+            recipeElement.style.animation = null; 
+
+
             document.getElementById('recipe').innerHTML = `
 
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
-                    <span class="titleR">Método:<br>${recipe.method}</span>
+                    <span class="titleR">Método</span>
+                    <p>${recipe.method}</p>
+                    <img src="./pics/aeropress.png" alt="">
                 </div>
                 <div class="container">
                     <span class="titleR">Tamaño de molienda</span>
@@ -209,11 +236,20 @@
                     <img src="./pics//icons8-mix-64.png" alt="">
                 </div>
                 <div class="container">
-                    <svg><!-- Tu SVG aquí --></svg>
-                    <span>Tiempo de agitación: ${recipe.agitationTime}</span>
+                    <span class="titleR">Tiempo de agitación</span>
+                    <p>${recipe.agitationTime}</p>
+                    <img src="./pics/hourglass.png" alt="">
+                </div>
+                <div class="container">
+                    <span class="titleR">Tiempo presionando</span>
+                    <p>${recipe.pressingTime}</p>
+                    <img src="./pics/aeropress2.png" alt="">
                 </div>
             `;
         }
+
+       
+
         
     </script>
     
