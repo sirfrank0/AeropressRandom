@@ -60,7 +60,19 @@
             border: 2px solid ;
             background-color: #8D6E63;
             color: #F5F5F5;
+            display: flex;
+            gap: 8px;
+            align-items: center;
 
+        }
+
+        .boton-receta:hover{
+          background-color: #63483e;
+        }
+
+
+        .boton-receta img{
+          max-width: 36px;
         }
 
         #cronometro-container {
@@ -82,11 +94,25 @@
     }
 
     #botones-cronometro button {
-      margin: 0 10px;
-      padding: 8px 16px;
-      font-size: 16px;
-      cursor: pointer;
+            padding: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            border: 2px solid ;
+            background-color: #8D6E63;
+            color: #F5F5F5;
+            display: flex;
+            gap: 8px;
+            align-items: center;
       
+    }
+
+    #botones-cronometro button img{
+      max-width: 36px;
+    }
+
+    #botones-cronometro button:hover{
+      background-color: #63483e;
     }
 
     .titleR{
@@ -98,6 +124,10 @@
 
     p{
         font-size: 16px;
+    }
+    
+    .imgbig{
+      max-width: 40px;
     }
 
     @keyframes fadein {
@@ -114,15 +144,15 @@
     
     <h1>Generador de recetas Aeropress</h1>
     <div id="recipe"></div>
-    <button onclick="generateRecipe()" class="boton-receta">Generar receta</button>
+    <button onclick="generateRecipe()" class="boton-receta"><img src="./pics/recipe-book.png" alt="">Generar receta</button>
 
     <div id="cronometro-container">
         <h1>Cronómetro</h1>
         <div id="cronometro">00:00:00</div>
         <div id="botones-cronometro"> 
-          <button onclick="iniciarCronometro()">Iniciar</button>
-          <button onclick="pausarCronometro()">Pausar</button>
-          <button onclick="reiniciarCronometro()">Reiniciar</button>
+          <button onclick="iniciarCronometro()"><img src="./pics/play-button.png" alt="">Iniciar</button>
+          <button onclick="pausarCronometro()"><img src="./pics/pause.png" alt="">Pausar</button>
+          <button onclick="reiniciarCronometro()"><img src="./pics/reset.png" alt="">Reiniciar</button>
         </div>
       </div>
 
@@ -213,7 +243,7 @@
                 <div class="container">
                     <span class="titleR">Tamaño de molienda</span>
                     <p>${recipe.grindSize}</p>
-                    <img src="./pics/coffee-beans.png" alt="">
+                    <img class="imgbig" src="./pics/coffee-beans.png" alt="">
                 </div>
                 <div class="container">
                     <span class="titleR">Temperatura del agua: </span>
@@ -238,7 +268,7 @@
                 <div class="container">
                     <span class="titleR">Tiempo de agitación</span>
                     <p>${recipe.agitationTime}</p>
-                    <img src="./pics/hourglass.png" alt="">
+                    <img class="imgbig" src="./pics/hourglass.png" alt="">
                 </div>
                 <div class="container">
                     <span class="titleR">Tiempo presionando</span>
