@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recetas Aeropress</title>
-    <meta name="description" content="Explora el mundo del café con recetas de Aeropress generadas al azar. Cada visita te ofrece una nueva receta, desde la molienda y la temperatura del agua hasta el tiempo de infusión. ¡Descubre tu receta perfecta hoy!">
+    <title>Aeropress recipe generator</title>
+    <meta name="description" content="Explore the world of coffee with randomly generated Aeropress recipes. Each visit offers you a new recipe, from grinding and water temperature to infusion time. Discover your perfect recipe today!">
     <link href="./pics/favicon.png" rel="icon" type="image/png"/>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
@@ -332,66 +332,66 @@
     
 
     <main>
-      <h1>Generador de recetas Aeropress</h1>
+      <h1>Aeropress Recipe Generator</h1>
     <div id="inst-cont">
       <div class="column">
         <div class="step">
-          <h2>Paso 1: Obtener receta</h2>
-          <p>Presiona el botón de "Generar receta" para empezar.</p>
+          <h2>Step 1: Get Recipe</h2>
+          <p>Press the "Generate Recipe" button to start.</p>
       </div>
           <div class="step">
-              <h2>Paso 2: Método</h2>
-              <p>Prepara tu Aeropress en el método Tradicional o Invertido.</p>
+              <h2>Step 2: Method</h2>
+              <p>Prepare your Aeropress in the Traditional or Inverted method.</p>
           </div>
           <div class="step">
-              <h2>Paso 3: Tamaño de molienda</h2>
-              <p>Elige el grosor del grano de café.</p>
+              <h2>Step 3: Grind Size</h2>
+              <p>Choose the grinding of the coffee bean.</p>
           </div>
           <div class="step">
-              <h2>Paso 4: Temperatura del agua</h2>
-              <p>Calienta el agua a la temperatura seleccionada, que puede variar desde 0°C hasta 96°C.</p>
+              <h2>Step 4: Water Temperature</h2>
+              <p>Heat the water to the selected temperature, which can vary from 0°C to 96°C.</p>
           </div>
           <div class="step">
-              <h2>Paso 5: Proporción Café:Agua</h2>
-              <p>Mide el café y el agua según la proporción seleccionada, que puede variar desde 1:10 hasta 1:20. Por ejemplo, 1:10 significa 10ml de agua por cada 1gr de café.</p>
+              <h2>Step 5: Coffee:Water Ratio</h2>
+              <p>Measure the coffee and water according to the selected ratio, which can vary from 1:10 to 1:20. For example, 1:10 means 10ml of water for every 1gr of coffee.</p>
           </div>
           <div class="step">
-            <h2>Paso 6: Tiempo de infusión</h2>
-            <p>Vierte el café en el émbolo de la Aeropress y deja que infusione durante el tiempo seleccionado, que puede variar desde 30 segundos hasta 4 minutos.</p>
+            <h2>Step 6: Infusion Time</h2>
+            <p>Pour the coffee into the Aeropress plunger and let it infuse for the selected time, which can vary from 30 seconds to 4 minutes.</p>
         </div>
       </div>
 
       <div class="column">
 
           <div class="step">
-              <h2>Paso 7: Mezclar</h2>
-              <p>Mezcla el café dentro de la Aeropress según la intensidad dada por la receta.</p>
+              <h2>Step 7: Stir</h2>
+              <p>Stir the coffee inside the Aeropress according to the intensity given by the recipe.</p>
           </div>
           <div class="step">
-              <h2>Paso 8: Tiempo mezclando</h2>
-              <p>Si has elegido mezclar, hazlo durante el tiempo seleccionado, que puede variar desde 30 segundos hasta 1:30 minutos.</p>
+              <h2>Step 8: Stirring Time</h2>
+              <p>If you have chosen to stir, do it for the selected time, which can vary from 30 seconds to 1:30 minutes.</p>
           </div>
           <div class="step">
-              <h2>Paso 9: Tiempo presionando</h2>
-              <p>Coloca un recipiente debajo de la Aeropress y presiona durante el tiempo seleccionado.</p>
+              <h2>Step 9: Pressing Time</h2>
+              <p>Place a container under the Aeropress and press for the selected time.</p>
           </div>
           <div class="step">
-            <h2>Paso 10: Disfrutar de tu café</h2>
-            <p>¡Ahora es el momento de disfrutar de tu café recién hecho! 🤎</p>
+            <h2>Step 10: Enjoy Your Coffee</h2>
+            <p>Now is the time to enjoy your freshly made coffee! 🤎</p>
         </div>
       </div>
 
   </div>
 
-  <button onclick="intruc()" class="inst-button"><img src="./pics/hide.png" alt="">Ocultar/mostrar las intrucciones</button>
+  <button onclick="intruc()" class="inst-button"><img src="./pics/hide.png" alt="">Hide/show instructions</button>
 
 
 
     <div id="recipe"></div>
-    <button onclick="generateRecipe()" class="boton-receta"><img src="./pics/recipe-book.png" alt="">Generar receta</button>
+    <button onclick="generateRecipe()" class="boton-receta"><img src="./pics/recipe-book.png" alt="">Generate Recipe</button>
 
     <div id="cronometro-container">
-        <h2><img src="./pics/timer.png" alt="" class="timerpic">Cronómetro</h2>
+        <h2><img src="./pics/timer.png" alt="" class="timerpic">Timer</h2>
         <div class="crono-cont">
           <div id="cronometro">00:00:00</div>
           <div id="botones-cronometro">
@@ -450,14 +450,14 @@
             pausarCronometro();
           }
 
-        const method = ["Tradicional", "Invertido"];
-        const grindSize = ["Fino", "Medio-fino", "Medio", "Medio-grueso", "Grueso"];
+        const method = ["Traditional", "Inverted"];
+        const grindSize = ["Fine", "Medium-fine", "Medium", "Medium-coarse", "Coarse"];
         const waterTemp = Array.from({length: 97}, (_, i) => i);
         const brewRatio = Array.from({length: 11}, (_, i) => `1 gr : ${i+10} ml`);
-        const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} segundos`);
-        const agitation = ["No mezclar", "Mezclar suavemente", "Mezclar moderadamente", "Mezclar vigorosamente"];
-        const agitationTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
-        const pressingTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} segundos`);
+        const brewTime = Array.from({length: 20}, (_, i) => `${(i+3)*10} seconds`);
+        const agitation = ["Do not stir", "Stir gently", "Stir moderately", "Stir vigorously"];
+        const agitationTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} seconds`);
+        const pressingTime = Array.from({length: 7}, (_, i) => `${(i+3)*10} seconds`);
 
         function generateRecipe() {
             const recipe = {
@@ -471,8 +471,8 @@
                 pressingTime: pressingTime[Math.floor(Math.random() * pressingTime.length)]
             };
 
-            if (recipe.agitation === "No agitar") {
-                recipe.agitationTime = "0 segundos";
+            if (recipe.agitation === "Do not stir") {
+                recipe.agitationTime = "0 seconds";
             }
             else
             {
@@ -490,22 +490,22 @@
 
             <div class="grid-container">
         <div class="container">
-          <span class="titleR">Método</span>
+          <span class="titleR">Method</span>
           <p>${recipe.method}</p>
           <img src="./pics/aeropress.png" alt="">
       </div>
       <div class="container">
-          <span class="titleR">Tamaño de molienda</span>
+          <span class="titleR">Grind Size</span>
           <p>${recipe.grindSize}</p>
           <img class="imgbig" src="./pics/coffee-beans.png" alt="">
       </div>
       <div class="container">
-          <span class="titleR">Temperatura del agua</span>
+          <span class="titleR">Water Temperature</span>
           <p>${recipe.waterTemp}°C</p>
           <img src="./pics/icons8-heat-100.png" alt="">
       </div>
       <div class="container">
-          <span class="titleR">Cafe:Agua</span>
+          <span class="titleR">Coffee:Water</span>
           <p>${recipe.brewRatio}</p>
           <img src="./pics/icons8-coffee-64.png" alt="">
       </div>
@@ -513,29 +513,29 @@
 
     
       <div class="container">
-        <span class="titleR">Tiempo de infusión</span>
+        <span class="titleR">Infusion Time</span>
         <p>${recipe.brewTime}</p>
         <img src="./pics/icons8-liquid-64.png" alt="">
     </div>
     <div class="container">
-        <span class="titleR">Mezclar</span>
+        <span class="titleR">Stir</span>
         <p>${recipe.agitation}</p>
         <img src="./pics//icons8-mix-64.png" alt="">
     </div>
     <div class="container">
-        <span class="titleR">Tiempo mezclando</span>
+        <span class="titleR">Stirring time</span>
         <p>${recipe.agitationTime}</p>
         <img class="imgbig" src="./pics/hourglass.png" alt="">
     </div>
     <div class="container">
-        <span class="titleR">Tiempo presionando</span>
+        <span class="titleR">Pressing Time</span>
         <p>${recipe.pressingTime}</p>
         <img src="./pics/aeropress2.png" alt="">
     </div>
     </div>
     <div class="recipesave">
-          <h2>Guarda tu receta</h2>
-          <p>No olvides guardar tu receta, anotándola o tomando una foto.</p>
+          <h2>Save your recipe</h2>
+          <p>Do not forget to save your recipe, either by writing it down or taking a photo.</p>
       </div>
             `;
         }
