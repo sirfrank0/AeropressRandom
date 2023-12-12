@@ -139,7 +139,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: center;
       border: 2px solid #8D6E63;
-      margin-bottom: 32px;
+      margin: 0px 8px 32px 8px;
     }
 
     #cronometro {
@@ -321,6 +321,16 @@
           #inst-cont{
           flex-direction: row;
         }
+        }
+
+        @media (max-width: 370px) {
+          .crono-cont{
+            flex-direction: column;
+            
+          }
+          #cronometro-container{
+            min-width: 300px;
+          }
         }
 
 
